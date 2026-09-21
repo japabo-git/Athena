@@ -24,6 +24,7 @@ Migration rule: the project is moving toward GitHub as the primary operational h
 - Current coordination: WORK_COORDINATION.md
 - Decisions/changes: DECISION_LOG.md
 - Current state: CURRENT_STATE.md
+- Memory architecture: MEMORY_SYSTEM.md
 - Task history: TASK_HISTORY.md plus GitHub Issues/PRs
 - Evidence: EVIDENCE_PROTOCOL.md and evidence/
 - Session/run logs: logs/
