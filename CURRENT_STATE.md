@@ -17,6 +17,16 @@ GitHub is now the primary durable operational workspace. The current external ca
 - App/deployment infrastructure remains separate from scientific experiment changes.
 - Runtime/user memory remains an application concern; MEMORY_SYSTEM.md defines the boundary.
 
+## Continuation checkpoint — 2026-09-22
+
+- Repository `japabo-git/Athena` was reloaded from `main` and the published operating contract was followed.
+- Main is clean with no open PRs/issues requiring collision handling.
+- The committed `Athena_Canonical_Source_of_Truth_Notion_Export.zip` is present in the repository, confirming an SSOT export artifact has been staged, but the canonical SSOT has **not** yet been reconciled into authoritative native repository records or explicitly cut over.
+- The committed `athena-experiment-system/reference/Agent_Execution_Lifecycle___Architecture_Guide.md` is available as reference material only; it must not override the constitution or canonical SSOT.
+- No experiment definitions were invented. The repository still requires canonical manifest synchronization before baseline execution.
+- Active continuation claim: `WC-20260922-02` on branch `agent/continue-ssot-reconciliation-20260922`.
+- Next executable action: inspect/reconcile the canonical SSOT export and record provenance, conflicts, and synchronization changes; if the export cannot be decoded through the available GitHub capability, treat that as a bounded access/tooling blocker rather than guessing.
+
 ## Workstreams
 | Workstream | Status | Next action |
 |---|---|---|
