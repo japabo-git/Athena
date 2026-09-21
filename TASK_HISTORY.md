@@ -10,6 +10,7 @@ Actor: ChatGPT / GitHub-connected engineering session.
 Workstream: agent governance and workspace consolidation.
 Branch: agent/governance-and-coordination-20260922.
 PR: #1.
-Outcome: establish a repository-first operating layer so future agents can recover state, methods, evidence, integrations and history without reconstructing chat.
-Evidence: repository inspection showed governance files existed but the previously described operating-model/playbook/lessons/tooling layer was absent; this change closes that gap.
-Next: publish the completed governance/workspace change and use it as the bootstrap for subsequent work.
+Outcome: repository-first operating layer established and published.
+Actions: inspected repository governance; added workspace/state/history/operating-model/playbook/lessons/tooling/credential/external-system/memory/artifact/log/evidence/PR workflow surfaces; updated bootstrap; marked PR ready; merged via squash.
+Evidence: PR #1 merged to main as 5482c160e5f0b6b92e3563214f2bc9c34fac1a79.
+Next: use the published workspace as the bootstrap for canonical SSOT migration and subsequent experiment work.
