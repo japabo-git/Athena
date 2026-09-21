@@ -30,6 +30,11 @@ planned / active / blocked / handoff / released / superseded
 ## Collision protocol
 If overlap is discovered: stop edits; identify owners/branches; compare intended outcomes; establish dependency/integration order; escalate SSOT/constitution conflicts; record resolution.
 
+## Latest handoff
+| ID | From | To | Time | What changed | Evidence | Next action |
+|---|---|---|---|---|---|---|
+| HO-20260922-02 | ChatGPT | next Athena agent/session | 2026-09-22 UTC | SOTA operating-layer audit completed; CONTINUE authority, risk tiers, recovery/rollback, independent review, untrusted-input handling and stronger integrity checks published | PR #2, merge 7e3d84cd0e6848bc8a80f82523d0b7b7c4532850 | Bootstrap from AGENTS.md; proceed to SSOT migration and experiment-system work |
+
 ## Current workstreams
 | Workstream | Owner | Status | Dependency |
 |---|---|---|---|
