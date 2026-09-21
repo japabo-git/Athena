@@ -5,29 +5,25 @@ Last updated: 2026-09-22 UTC
 ## Project direction
 Athena is a tenant-agnostic self-improvement system. Its intended role is inquiry-first: understand current and desired states, test assumptions, identify likely future problems, and help the person make better decisions rather than merely agreeing.
 
-The repository is being established as the primary durable operational workspace.
+GitHub is now the primary durable operational workspace. The current external canonical SSOT has not yet been formally cut over, so its owned decisions remain authoritative until migration is explicitly completed.
 
 ## Current status
-- Experiment-system repository boundary exists.
-- Governance, coordination and evidence controls are being added.
+- Repository-first governance/workspace layer is published on main.
 - No finished experiment runner is established in this repository.
 - Baseline and initial experiment cohort remain the scientific workstream; do not invent or silently alter definitions.
-- Current external canonical SSOT has not yet been formally cut over to GitHub.
-- App/deployment infrastructure is separate from scientific experiment changes.
+- App/deployment infrastructure remains separate from scientific experiment changes.
+- Runtime/user memory remains an application concern; MEMORY_SYSTEM.md defines the boundary.
 
 ## Workstreams
 | Workstream | Status | Next action |
 |---|---|---|
-| Workspace consolidation | active | complete registry and migration plan |
+| Workspace consolidation | complete for operating layer | use workspace as default bootstrap |
 | Canonical SSOT migration | pending | inspect/export/reconcile, then explicitly cut over |
 | Experiment manifests | pending | synchronize canonical definitions |
 | Experiment runner | pending | implement after manifests/execution contract |
 | Evidence/observability | active | durable raw evidence and run records |
 | Infrastructure/deployment | pending | verify current AppDeploy/Hatchable state separately |
-| Agent operating system | active | institutionalize proven workflows and anti-patterns |
-
-## Recent governance change
-PR #1 establishes the repository-level agent contract, coordination, provenance, evidence, session-start and integrity controls.
+| Agent operating system | active | reuse and improve published playbooks/lessons |
 
 ## Constraints
 - No secrets in GitHub source, logs, issues, artifacts or commits.
