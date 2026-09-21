@@ -2,58 +2,39 @@
 
 Purpose: prevent collisions, duplicated work, contradictory assumptions, and lost handoffs between humans and agents.
 
-This is a lightweight coordination control plane. It is not a source of truth for Athena decisions; it records who is doing what and what happened.
+This is a lightweight coordination control plane. It is not a source of truth for Athena decisions.
 
 ## Operating rules
-
 1. Claim work before editing a shared area.
-2. Claims must name the owner, branch, scope, start time, expected handoff, and collision boundary.
-3. Prefer narrow scopes. Avoid claiming the whole repository.
-4. If two claims overlap, stop and coordinate; do not race.
-5. A claim becomes released when the work is merged, abandoned, or explicitly handed off.
-6. Never delete another agent historical claim. Mark it released or superseded.
-7. A stale claim over 24h is not automatically safe to take over. Record the takeover reason and preserve prior owner/branch information.
-8. Git history and PRs contain implementation provenance; this ledger contains operational coordination.
+2. Claims name owner, branch, scope, start time, expected handoff and collision boundary.
+3. Prefer narrow scopes.
+4. If claims overlap, stop and coordinate.
+5. Claims become released when merged, abandoned or handed off.
+6. Never delete historical claims; mark released/superseded.
+7. A stale claim is not automatically safe to take over; record the takeover reason.
+8. Git history/PRs contain implementation provenance; this ledger contains operational coordination.
 
 ## Status vocabulary
+planned / active / blocked / handoff / released / superseded
 
-- planned — identified but not started.
-- active — owner is currently working.
-- blocked — cannot continue; record blocker and evidence.
-- handoff — intentionally transferred.
-- released — no longer reserved.
-- superseded — replaced by a later decision/change.
-
-## Active claims
-
-| ID | Owner | Agent/session | Branch | Scope | Status | Started (UTC) | Expected handoff | Collision boundary |
-|---|---|---|---|---|---|---|---|---|
-| WC-20260922-01 | ChatGPT | current session | agent/governance-and-coordination-20260922 | repository coordination, provenance, agent handoff controls | active | 2026-09-21/22 | after PR review | governance/control-plane files |
+## Recent claim
+| ID | Owner | Agent/session | Branch | Scope | Status | Outcome |
+|---|---|---|---|---|---|---|
+| WC-20260922-01 | ChatGPT | GitHub engineering session | agent/governance-and-coordination-20260922 | repository coordination, provenance, agent handoff controls | released | PR #1 merged as 5482c160e5f0b6b92e3563214f2bc9c34fac1a79 |
 
 ## Handoff record
-
-| ID | From | To | Time (UTC) | What changed | Evidence | Next action |
+| ID | From | To | Time | What changed | Evidence | Next action |
 |---|---|---|---|---|---|---|
-| HO-20260922-01 | ChatGPT | next Athena agent/session | 2026-09-21/22 | Added repository-wide agent contract, coordination protocol, decision/evidence protocol, and CI integrity checks | PR associated with this branch | Review/merge; then use protocol for substantive work |
+| HO-20260922-01 | ChatGPT | next Athena agent/session | 2026-09-22 UTC | Repository-first workspace layer published: state, task history, operating model, playbook, lessons, tooling, credentials metadata, external systems, memory architecture, artifacts, logs/evidence surfaces and PR workflow | PR #1 merged | Bootstrap from AGENTS.md and WORKSPACE.md; proceed to SSOT migration |
 
 ## Collision protocol
-
-If overlap is discovered:
-
-1. Stop edits in the overlapping area.
-2. Identify both branches/owners.
-3. Compare intended outcomes, not just filenames.
-4. Determine whether one is a dependency of the other.
-5. If compatible, agree an integration order.
-6. If conflict involves SSOT or constitution, escalate to the higher-authority source.
-7. Record the resolution in the decision log.
+If overlap is discovered: stop edits; identify owners/branches; compare intended outcomes; establish dependency/integration order; escalate SSOT/constitution conflicts; record resolution.
 
 ## Current workstreams
-
-| Workstream | Owner | Status | Canonical dependency |
+| Workstream | Owner | Status | Dependency |
 |---|---|---|---|
-| Canonical SSOT synchronization | project owner / delegated agent | pending | Athena Notion SSOT |
-| Experiment manifests | project owner / delegated agent | pending | current SSOT |
+| Canonical SSOT synchronization | delegated agent | pending | current external SSOT |
+| Experiment manifests | delegated agent | pending | current SSOT |
 | Experiment runner | unassigned | pending | manifests + constitution |
-| Evidence/observability | unassigned | pending | experiment method |
-| Infrastructure/deployment | unassigned | pending | runner requirements |
+| Evidence/observability | delegated agent | active | experiment method |
+| Infrastructure/deployment | delegated agent | pending | runner requirements |
