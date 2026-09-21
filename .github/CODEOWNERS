@@ -1,0 +1,9 @@
+# Governance and canonical-source controls require project-owner review.
+# Update this file when a stable GitHub account/team for ownership is established.
+
+AGENTS.md
+WORK_COORDINATION.md
+DECISION_LOG.md
+EVIDENCE_PROTOCOL.md
+athena-experiment-system/constitution/
+athena-experiment-system/experiments/
