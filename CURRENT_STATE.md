@@ -10,9 +10,10 @@ GitHub is now the primary durable operational workspace. The current external ca
 ## Current status
 - Repository-first governance/workspace layer is published on main.
 - Operating-layer SOTA audit and hardening are published on main via PR #2 (merge 7e3d84cd0e6848bc8a80f82523d0b7b7c4532850).
-- Agentic security threat model, integrity CI and SOTA gap audit are published via PR #3 (merge 205d347c594a49a38d23be6c339e4381b0aacec5).
+- Agentic security threat model, integrity CI and SOTA gap audit are published via PR #3 (merge 205d347c594a49a38d23b7b7c4532850).
 - No finished experiment runner is established in this repository.
 - Baseline and initial experiment cohort remain the scientific workstream; do not invent or silently alter definitions.
+- Repository integrity CI was repaired in PR #5 and verified successful on main in Actions run #39.
 - App/deployment infrastructure remains separate from scientific experiment changes.
 - Runtime/user memory remains an application concern; MEMORY_SYSTEM.md defines the boundary.
 
