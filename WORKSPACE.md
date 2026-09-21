@@ -25,6 +25,10 @@ Migration rule: the project is moving toward GitHub as the primary operational h
 - Decisions/changes: DECISION_LOG.md
 - Current state: CURRENT_STATE.md
 - Memory architecture: MEMORY_SYSTEM.md
+- Security threat model: SECURITY_THREAT_MODEL.md
+- Reliability/resilience: RELIABILITY_AND_RESILIENCE.md
+- Runtime protocol: AGENT_RUNTIME_PROTOCOL.md
+- SOTA audit: AUDIT_SOTA_20260922.md
 - Task history: TASK_HISTORY.md plus GitHub Issues/PRs
 - Evidence: EVIDENCE_PROTOCOL.md and evidence/
 - Session/run logs: logs/
