@@ -14,6 +14,10 @@ Use the source hierarchy in athena-experiment-system/constitution/06-source-hier
 
 Never silently resolve a conflict by choosing a lower-level source.
 
+## Autonomous continuation
+
+When asked to CONTINUE, follow CONTINUE.md. Use AGENT_SAFETY_MODEL.md for risk/authority boundaries and RECOVERY.md for failure handling. Do not interpret CONTINUE as unlimited authority.
+
 ## Before touching anything
 
 1. Read this file and WORKSPACE.md.
