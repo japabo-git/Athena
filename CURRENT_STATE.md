@@ -9,6 +9,7 @@ GitHub is now the primary durable operational workspace. The current external ca
 
 ## Current status
 - Repository-first governance/workspace layer is published on main.
+- Operating-layer SOTA audit and hardening are published on main via PR #2 (merge 7e3d84cd0e6848bc8a80f82523d0b7b7c4532850).
 - No finished experiment runner is established in this repository.
 - Baseline and initial experiment cohort remain the scientific workstream; do not invent or silently alter definitions.
 - App/deployment infrastructure remains separate from scientific experiment changes.
