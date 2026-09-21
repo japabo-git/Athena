@@ -1,0 +1,46 @@
+name: Repository Integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    name: repository-integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Require agent contract
+        run: test -f AGENTS.md
+
+      - name: Require coordination ledger
+        run: test -f WORK_COORDINATION.md
+
+      - name: Require evidence protocol
+        run: test -f EVIDENCE_PROTOCOL.md
+
+      - name: Check for obvious secret material
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --exclude-dir=.git --exclude='*.zip' '(sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})' .; then
+            echo "Potential credential detected. Remove it before merging."
+            exit 1
+          fi
+
+      - name: Check coordination ledger
+        run: grep -Eq '^## (Active claims|Handoff record)$' WORK_COORDINATION.md
+
+      - name: Check no merge-conflict markers
+        run: |
+          if grep -RIn --exclude-dir=.git --exclude='*.zip' -E '^(<<<<<<<|=======|>>>>>>>)' .; then
+            echo "Merge-conflict markers found."
+            exit 1
+          fi
