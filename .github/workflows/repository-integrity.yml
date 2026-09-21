@@ -17,42 +17,59 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Require agent contract
-        run: test -f AGENTS.md
-
-      - name: Require coordination ledger
-        run: test -f WORK_COORDINATION.md
-
-      - name: Require evidence protocol
-        run: test -f EVIDENCE_PROTOCOL.md
-
-      - name: Check for obvious secret material
+      - name: Require core operating surfaces
         shell: bash
         run: |
           set -euo pipefail
-          if grep -RInE --exclude-dir=.git --exclude='*.zip' '(sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|AKIA[0-9A-Z]{16}|xox[baprs]-[0-9A-Za-z-]{10,})' .; then
-            echo "Potential credential detected. Remove it before merging."
-            exit 1
-          fi
-
-      - name: Check required operating surfaces
-        run: |
-          set -euo pipefail
-          for f in AGENTS.md WORKSPACE.md CURRENT_STATE.md WORK_COORDINATION.md DECISION_LOG.md EVIDENCE_PROTOCOL.md OPERATING_MODEL.md PLAYBOOK.md LESSONS_LEARNED.md MEMORY_SYSTEM.md TOOLING.md CREDENTIALS.md EXTERNAL_SYSTEMS.md ARTIFACTS.md PR_WORKFLOW.md ROADMAP.md CONTINUE.md RECOVERY.md AGENT_SAFETY_MODEL.md REVIEW_POLICY.md; do test -f "$f"; done
+          required=(
+            AGENTS.md
+            WORKSPACE.md
+            CURRENT_STATE.md
+            WORK_COORDINATION.md
+            DECISION_LOG.md
+            EVIDENCE_PROTOCOL.md
+            OPERATING_MODEL.md
+            PLAYBOOK.md
+            LESSONS_LEARNED.md
+            MEMORY_SYSTEM.md
+            TOOLING.md
+            CREDENTIALS.md
+            EXTERNAL_SYSTEMS.md
+            ARTIFACTS.md
+            PR_WORKFLOW.md
+            ROADMAP.md
+            CONTINUE.md
+            RECOVERY.md
+            AGENT_SAFETY_MODEL.md
+            REVIEW_POLICY.md
+            AGENT_RUNTIME_PROTOCOL.md
+            RELIABILITY_AND_RESILIENCE.md
+            REVIEW_AND_EVALUATION.md
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "Missing required operating surface: $f"; exit 1; }
+          done
 
       - name: Check coordination ledger
-        run: grep -Eq '^## (Current workstreams|Handoff record)
-      - name: Check no merge-conflict markers
+        shell: bash
         run: |
+          set -euo pipefail
+          grep -Eq '^## (Current workstreams|Latest handoff|Handoff record|Recent claim)' WORK_COORDINATION.md
+
+      - name: Check for merge-conflict markers
+        shell: bash
+        run: |
+          set -euo pipefail
           if grep -RIn --exclude-dir=.git --exclude='*.zip' -E '^(<<<<<<<|=======|>>>>>>>)' .; then
             echo "Merge-conflict markers found."
             exit 1
           fi
- WORK_COORDINATION.md
 
-      - name: Check no merge-conflict markers
+      - name: Check for obvious credential material
+        shell: bash
         run: |
-          if grep -RIn --exclude-dir=.git --exclude='*.zip' -E '^(<<<<<<<|=======|>>>>>>>)' .; then
-            echo "Merge-conflict markers found."
+          set -euo pipefail
+          if grep -RInE --exclude-dir=.git --exclude='*.zip'             '(sk-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|AKIA[0-9A-Z]{16}|xox[baprs]-[0-9A-Za-z-]{10,})' .; then
+            echo "Potential credential detected. Remove it before merging."
             exit 1
           fi
