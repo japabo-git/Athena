@@ -1,0 +1,41 @@
+name: Athena integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required workspace surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            AGENTS.md WORKSPACE.md CURRENT_STATE.md WORK_COORDINATION.md ROADMAP.md
+            CONTINUE.md AGENT_SAFETY_MODEL.md RECOVERY.md AGENT_RUNTIME_PROTOCOL.md
+            RELIABILITY_AND_RESILIENCE.md REVIEW_AND_EVALUATION.md EVIDENCE_PROTOCOL.md
+            DECISION_LOG.md TOOLING.md MEMORY_SYSTEM.md
+          )
+          for f in "${required[@]}"; do
+            test -f "$f" || { echo "Missing required workspace surface: $f"; exit 1; }
+          done
+      - name: Reject obvious secret material
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -nEI '(sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{20,}|gh[pousr]_[A-Za-z0-9_]{20,}|BEGIN (RSA|EC|OPENSSH) PRIVATE KEY)' -- ':!CREDENTIALS.md' ':!*.lock' ; then
+            echo "Potential secret material detected."
+            exit 1
+          fi
+      - name: Check direct-main policy marker
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q "Do not work directly on main" AGENTS.md
