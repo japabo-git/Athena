@@ -16,13 +16,15 @@ Never silently resolve a conflict by choosing a lower-level source.
 
 ## Before touching anything
 
-1. Read this file and the repository README.
-2. Read the entire constitution directory.
-3. Read athena-experiment-system/agent/operating-instructions.md.
-4. Read WORK_COORDINATION.md.
-5. Inspect recent commits and open PRs.
-6. Check active work claims before editing shared areas.
-7. If the task depends on the canonical SSOT, verify its current revision/timestamp first.
+1. Read this file and WORKSPACE.md.
+2. Read OPERATING_MODEL.md and the repository README.
+3. Read the entire constitution directory.
+4. Read athena-experiment-system/agent/operating-instructions.md.
+5. Read WORK_COORDINATION.md.
+6. Inspect recent commits and open PRs.
+7. Check active work claims before editing shared areas.
+8. Check CURRENT_STATE.md, relevant task history, decisions, lessons, evidence, tooling, integrations and memory-system records.
+9. If the task depends on the canonical SSOT, verify its current revision/timestamp first.
 
 ## Change isolation
 
