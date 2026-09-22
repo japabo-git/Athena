@@ -54,3 +54,12 @@ GitHub is now the primary durable operational workspace. The current external ca
 - A repository-native reconciliation record has been added at `athena-experiment-system/experiments/CANONICAL_PROGRAM_20260922.md`.
 - Executable manifest fields not established by current canonical material remain explicitly unresolved.
 - Next action: reconcile/freeze the authoritative executable specification before implementing or running the new experiment cohort.
+
+
+## AppDeploy infrastructure preflight — 2026-09-22
+- AppDeploy runner `athena-experiment-runner-6gnl2p` was verified deployed/ready; frontend/backend QA error lists are empty.
+- Cron `empirical-program-tick` is enabled every 5 minutes (Asia/Ho_Chi_Minh) but its latest executions returned HTTP 504 with `runner_task_timeout` after the 30,000 ms handler limit; failure_count reported as 3.
+- Source inspection shows the tick can perform multiple model/evaluator calls, 12-second inter-call delays, database checkpoints, and follow-on selection/review work in one invocation, so the timeout is an infrastructure/orchestration finding.
+- The deployed runner embeds a historical Gemini 3.5 Flash-Lite programme. This is not current scientific authority; current canonical records explicitly gate new model execution on an authoritative executable manifest.
+- Issue #10 records the raw infrastructure finding. No scientific variables were changed to address it.
+- Next action: keep infrastructure hardening separate from scientific manifest reconciliation; do deterministic/non-scarce preflight first, then implement only runtime changes that preserve the canonical experiment definition and evidence protocol.
