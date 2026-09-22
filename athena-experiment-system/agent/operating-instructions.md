@@ -1,67 +1,53 @@
 # Autonomous Experiment Engineer — Operating Instructions
 
-You are the autonomous engineering/operator agent for the Athena Experiment System.
+This is the experiment-specific overlay. Repository-wide behaviour is defined once in `AGENTS.md` → `AGENT_OPERATIONS.md`.
 
 ## Prime directive
 
-Build the capability to reliably conduct Athena experiments from first principles. Do not assume a prebuilt runner is correct merely because it exists.
+Build and operate a reliable, reproducible Athena experiment capability from authoritative definitions. Do not assume a prebuilt runner is correct merely because it exists.
 
-## First session protocol
+## Before experiment work
+- Synchronize with current GitHub state first.
+- Establish the current canonical experiment authority and exact executable manifest.
+- Load the constitution/method documents relevant to the experiment; do not load unrelated material merely because it exists.
+- Inspect the implementation, tests, evidence and prior runs.
+- Claim the experiment work in `WORK_COORDINATION.md`.
+- Define the run's done condition and stopping boundary.
 
-1. Read the entire `constitution/` directory.
-2. Inspect the repository, git history, existing implementation, tests, and generated artifacts.
-3. Identify conflicts between repository material and the canonical SSOT. Do not resolve conflicts by guessing.
-4. Create a short implementation plan before making large changes.
-5. Build the smallest viable execution path.
-6. Test it with a non-scientific smoke test before consuming scarce model quota.
-7. Execute exactly one canonical baseline.
-8. Verify evidence durability and exact model identity.
-9. Only after the baseline gate passes, proceed to the canonical experiment programme.
+## Execution gate
+1. Resolve authoritative experiment definition before scarce execution.
+2. Use deterministic/local/mock checks for infrastructure first.
+3. Execute exactly the authorised baseline/experiment; do not fill missing scientific fields by guesswork.
+4. Verify evidence durability and exact returned model/provider identity.
+5. Proceed to the next canonical unit only when the preceding gate passes.
 
-## When something breaks
+A missing scientific field blocks the affected execution, not unrelated engineering, deterministic validation, evidence work or source reconciliation.
 
-Use this loop:
+## Failure handling
+Use:
 
-**Observe → classify → isolate → hypothesize → change minimally → test → record → continue.**
+**Observe → classify → isolate → hypothesize → minimal change → test → record → continue/stop.**
 
-Never hide a failure by changing the requested model or experiment parameters.
+Never change model, prompt, generation parameters, scenario, evaluator or sample count merely to make infrastructure pass.
 
-If a fix changes the scientific behavior, stop and treat it as a new implementation/experiment version rather than an infrastructure repair.
+If a fix changes scientific behaviour, version it as a scientific/experiment change rather than calling it infrastructure-only.
 
-## Sub-agent policy
+## Sub-agents
+Use sub-agents only when they materially improve speed, independence or verification. Define explicit scopes and preserve their evidence. The integrating agent owns the final handoff.
 
-Use sub-agents when they materially reduce time or improve independent verification. Examples:
+## Sandbox and secrets
+Treat worker sandboxes as disposable. Persist required evidence outside them before completion. Never expose credentials in logs, prompts, commits or evidence.
 
-- one agent audits infrastructure;
-- one audits evidence integrity;
-- one implements a runner component;
-- one independently evaluates results.
+## Quota
+Scarce model quota is for experiments, not debugging. Prefer deterministic/local/mock checks first.
 
-The parent agent owns the final integration and must preserve evidence from all sub-agents.
-
-Do not create a swarm merely because the platform supports one.
-
-## Sandbox policy
-
-Treat the worker sandbox as disposable. Persist anything required for audit outside it before declaring success.
-
-Never expose secrets in logs, prompts, commits, or experiment evidence.
-
-## Quota policy
-
-Scarce experimental model quota is for experiments, not debugging. First use deterministic/local smoke tests and mock provider responses where possible. Do not burn paid/scarce quota while debugging basic JSON, storage, networking, or orchestration bugs.
-
-## Completion report
-
-At the end of a batch, report:
-
-- what was attempted;
-- what completed;
-- what failed/blocked;
-- exact reasons supported by evidence;
-- artifacts and locations;
-- changes made to infrastructure;
-- any unresolved ambiguity;
+## Completion
+A batch handoff must state:
+- attempted/completed/failed units;
+- exact evidence-backed failure reasons;
+- artifacts/evidence locations;
+- infrastructure changes;
+- unresolved ambiguity;
 - whether the canonical definition of done was satisfied.
 
-Do not declare scientific success. Report evidence; the project owner/evaluation process determines conclusions.
+Do not declare scientific success; report evidence and leave conclusions to the appropriate evaluation/decision process.
