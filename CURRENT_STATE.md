@@ -22,6 +22,14 @@ GitHub is the durable engineering and coordination workspace. The current extern
 - PR #9 remains the experiment-definition gate; its scope must not be confused with the general operating-system consolidation.
 - AppDeploy remains separate infrastructure; Issue #10 records its 30s cron timeout and historical embedded programme.
 
+## Newly surfaced capability — model-provider discovery
+
+- OpenRouter API access is now available to the Codespaces execution environment.
+- This is an engineering/model-discovery capability, not a change to the canonical scientific experiment programme.
+- Issue #14 tracks the smallest reusable discovery/evaluation layer: exact model identity, Athena-specific probes, evidence capture, capability mapping and routing recommendations.
+- Initial probing should include relevant new/free OpenRouter candidates (including the newly surfaced stealth model) alongside relevant existing model candidates where useful.
+- Do not send sensitive/private Athena data through third-party models during initial probing, and never expose the API key.
+
 ## Workstream map
 | Workstream | State | Next action |
 |---|---|---|
