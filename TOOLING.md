@@ -1,29 +1,28 @@
 # Athena Tooling Policy
 
 ## Principle
+GitHub is the durable coordination surface. External tools are capability providers, not competing memory.
 
-The repository should be the durable coordination surface; external tools should provide capabilities, not become competing sources of truth.
-
-## Tool selection
-
-For each external tool, record:
-
-- capability provided;
-- authoritative data it owns, if any;
+## Every integration must define
+- capability;
+- authority/data it owns, if any;
 - why Athena needs it;
-- credential/connection owner;
+- connection/credential owner;
 - failure mode;
 - fallback;
-- how results/evidence return to this repository.
+- durable return path into GitHub.
 
-## Integration rule
+## Agent synchronization
+Every connected agent/execution environment must start from current GitHub state and publish durable changes/evidence back to GitHub before handoff. Repeated manual setup should be replaced by a shared project integration or documented automation where supported.
 
-If an agent needs the same external connection repeatedly, prefer a shared project-level integration or documented automation over asking each new agent/session to reconnect manually.
+## Execution environments
+Antigravity/Codespaces, AppDeploy/Hatchable, sandboxes and similar systems are workers. They may execute work, but their local state, logs or memory are not authoritative until reconciled.
 
-## Secret rule
+## Secrets
+Never commit credentials. Use secure secret mechanisms and non-secret aliases.
 
-Never commit credentials. Store them in the platform's secure secret mechanism and refer to them by non-secret alias.
+## Decommission
+If a tool adds more coordination/setup cost than durable value, record the evidence and simplify/remove it rather than accumulating integrations.
 
-## Decommission rule
-
-If a tool creates more coordination/setup overhead than value, record the evidence and remove or simplify the integration rather than accumulating tooling.
+## Maintenance
+When an integration's capability, owner, failure mode or return path changes, update this registry in the same change. Do not maintain stale connection instructions.
