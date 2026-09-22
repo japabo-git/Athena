@@ -59,7 +59,7 @@ If overlap is discovered: stop edits; identify owners/branches; compare intended
 ## Active claim — SSOT experiment-program reconciliation
 | ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
 |---|---|---|---|---|---|---|
-| WC-20260922-03 | ChatGPT | GitHub continuation session | agent/ssot-experiment-program-20260922 | synchronize the current canonical experiment registry/method into repository-native records without inventing executable fields | active | publish reconciliation PR or bounded blocker |
+| WC-20260922-03 | ChatGPT | GitHub continuation session | agent/ssot-experiment-program-20260922 | synchronize the current canonical experiment registry/method into repository-native records without inventing executable fields | released | bounded blocker published; superseded by WC-20260922-04 |
 
 ## Reconciliation checkpoint — 2026-09-22
 - Direct Notion inspection confirmed the current canonical registry contains EXP-001 through EXP-005 only.
@@ -67,3 +67,16 @@ If overlap is discovered: stop edits; identify owners/branches; compare intended
 - Historical references to 18-job and 20-run programmes are retained as historical evidence and are not silently promoted.
 - Exact executable fields not present in the current canonical registry/method remain unresolved and must not be invented.
 - Next gate: obtain/reconcile an authoritative executable specification before freezing manifests or running a new cohort.
+
+
+## Active claim — executable specification gate
+| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
+|---|---|---|---|---|---|---|
+| WC-20260922-04 | ChatGPT | GitHub continuation session | agent/executable-spec-gap-20260922 | reconcile executable experiment specification without inventing missing scientific fields | blocked | hand off exact missing-field list; resume when authoritative spec is locked |
+
+## Specification-gate checkpoint — 2026-09-22
+- Canonical method and execution SOP were inspected directly.
+- Current registry remains EXP-001 through EXP-005.
+- Historical 18-job/20-run programmes are not current authority.
+- Required executable fields remain incomplete for a new cohort.
+- Evidence record: athena-experiment-system/experiments/EXECUTABLE_SPEC_GATE_20260922.md.
