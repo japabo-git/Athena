@@ -47,3 +47,19 @@ Use these labels consistently in commits/PRs:
 - evidence: changes to evidence capture, schemas, or observability.
 - docs: explanatory documentation.
 - fix: defect repair; state whether scientific behavior can change.
+
+
+## DEC-20260922-002
+
+- Date/time (UTC): 2026-09-22
+- Actor: ChatGPT, GitHub-connected engineering session
+- Type: observation / planning change
+- Question/problem: A new OpenRouter API capability and newly available/free models have appeared while Athena is still separating scientific execution from infrastructure/model discovery.
+- Decision/change: Treat OpenRouter as a reusable model-discovery and engineering-evaluation capability, not as an automatic scientific experiment-variable change. Create Issue #14 for a minimal probe/evaluation package and add model capability discovery to the near-term experimentation roadmap.
+- Authority/source: Repository operating model and current executable-specification gate; new Codespaces secret supplied by the user.
+- Alternatives considered: immediately substitute OpenRouter/new models into the canonical cohort; ignore the new capability; build a large routing framework before collecting evidence.
+- Evidence: current repository explicitly blocks new scientific cohorts until exact model/provider and other executable fields are authoritatively locked; OpenRouter access is now available for separate engineering evaluation.
+- Confidence/uncertainty: High that the capability should be evaluated separately; which models/roles are useful remains empirical.
+- Impact: adds a reusable model-selection/discovery workstream without contaminating scientific measurement.
+- Follow-up: execute Issue #14 using sanitized Athena tasks, preserve exact model/provider/configuration evidence, then update the capability map and routing recommendations.
+- Supersedes / superseded by: None.
