@@ -64,6 +64,7 @@ Capability areas:
 - baseline
 - scenario/input management
 - model/provider abstraction
+- model/provider capability discovery and empirical routing
 - parameter control
 - evaluator framework
 - run orchestration
@@ -74,6 +75,10 @@ Capability areas:
 - reproducibility
 
 **Decision gates:** model choices, architecture choices and evaluation methods remain empirical until evidence supports them.
+
+## Near-horizon refinement
+
+The new OpenRouter capability creates a reusable prerequisite across Horizons 2–8: maintain an evidence-backed model capability map so model/provider selection can be empirical and replaceable rather than hard-coded. Issue #14 is the current execution package. This does not alter the canonical experiment sequence or scientific model lock.
 
 ## Horizon 3 — Athena reasoning/interaction prototype
 

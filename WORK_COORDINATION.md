@@ -1,81 +1,51 @@
 # Work Coordination Ledger
 
-Purpose: prevent collisions, duplicated work, contradictory assumptions, and lost handoffs between humans and agents.
+Purpose: manage live ownership and collision boundaries. This is not a source of truth for decisions, history or evidence.
 
-This is a lightweight coordination control plane. It is not a source of truth for Athena decisions.
-
-## Operating rules
-1. Claim work before editing a shared area.
-2. Claims name owner, branch, scope, start time, expected handoff and collision boundary.
-3. Prefer narrow scopes.
+## Rules
+1. Claim work before editing shared areas.
+2. One claim names one owner/session, branch, scope, collision boundary and expected handoff.
+3. Prefer narrow, independently mergeable scopes.
 4. If claims overlap, stop and coordinate.
-5. Claims become released when merged, abandoned or handed off.
-6. Never delete historical claims; mark released/superseded.
+5. Release/supersede claims when merged, abandoned or handed off.
+6. Never delete historical claims.
 7. A stale claim is not automatically safe to take over; record the takeover reason.
-8. Git history/PRs contain implementation provenance; this ledger contains operational coordination.
+8. Git history/PRs contain implementation provenance; this ledger contains live coordination only.
 
 ## Status vocabulary
 planned / active / blocked / handoff / released / superseded
 
-## Recent claim
-| ID | Owner | Agent/session | Branch | Scope | Status | Outcome |
+## Current active work
+| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
 |---|---|---|---|---|---|---|
-| WC-20260922-01 | ChatGPT | GitHub engineering session | agent/governance-and-coordination-20260922 | repository coordination, provenance, agent handoff controls | released | PR #1 merged as 5482c160e5f0b6b92e3563214f2bc9c34fac1a79 |
+| WC-20260922-06 | ChatGPT | GitHub continuation session | agent/consolidate-agent-ops-20260922 | repository-wide operating-system consolidation: synchronization, authority routing, task/state boundaries, stale/orphan cleanup, and generic continuation behaviour | active | publish audit/fix PR; release claim after merge |
 
-## Handoff record
-| ID | From | To | Time | What changed | Evidence | Next action |
-|---|---|---|---|---|---|---|
-| HO-20260922-01 | ChatGPT | next Athena agent/session | 2026-09-22 UTC | Repository-first workspace layer published: state, task history, operating model, playbook, lessons, tooling, credentials metadata, external systems, memory architecture, artifacts, logs/evidence surfaces and PR workflow | PR #1 merged | Bootstrap from AGENTS.md and WORKSPACE.md; proceed to SSOT migration |
+## Superseded/released claims
+| ID | Status | Reason |
+|---|---|---|
+| WC-20260922-01 | released | PR #1 merged |
+| WC-20260922-02 | superseded | superseded by consolidated operating-system work; prior reconciliation checkpoint preserved in history |
+| WC-20260922-03 | superseded | superseded by consolidated operating-system work; experiment reconciliation remains represented by PR #9 |
+| WC-20260922-05 | released | AppDeploy preflight evidence merged as PR #11; runtime issue remains tracked in Issue #10 |
+
+## Current workstream map
+| Workstream | Live owner/state | Dependency |
+|---|---|---|
+| Operating system / agent coordination | active: WC-20260922-06 | none |
+| Canonical SSOT synchronization | represented by PR/issues; no overlapping edit claim | current external SSOT |
+| Experiment manifests | represented by PR #9 | authoritative executable specification |
+| Experiment execution | not yet claimed as a scientific execution run | executable manifest |
+| Evidence/observability | supporting work as needed | experiment method |
+| Infrastructure/deployment | Issue #10 | runner requirements |
+
+## Handoff protocol
+Before handoff, the owner must:
+- publish durable work to GitHub;
+- update the relevant current-state/evidence/task record;
+- release or supersede the claim;
+- state the next action and unresolved uncertainty.
+
+A future agent must not infer active ownership from an old claim.
 
 ## Collision protocol
-If overlap is discovered: stop edits; identify owners/branches; compare intended outcomes; establish dependency/integration order; escalate SSOT/constitution conflicts; record resolution.
-
-## Latest handoff
-| ID | From | To | Time | What changed | Evidence | Next action |
-|---|---|---|---|---|---|---|
-| HO-20260922-02 | ChatGPT | next Athena agent/session | 2026-09-22 UTC | SOTA operating-layer audit completed; CONTINUE authority, risk tiers, recovery/rollback, independent review, untrusted-input handling and stronger integrity checks published | PR #2, merge 7e3d84cd0e6848bc8a80f82523d0b7b7c4532850 | Bootstrap from AGENTS.md; proceed to SSOT migration and experiment-system work |
-
-## Current workstreams
-| Workstream | Owner | Status | Dependency |
-|---|---|---|---|
-| Canonical SSOT synchronization | delegated agent | pending | current external SSOT |
-| Experiment manifests | delegated agent | pending | current SSOT |
-| Experiment runner | unassigned | pending | manifests + constitution |
-| Evidence/observability | delegated agent | active | experiment method |
-| Infrastructure/deployment | delegated agent | pending | runner requirements |
-
-
-## Latest handoff
-| ID | From | To | Time | What changed | Evidence | Next action |
-|---|---|---|---|---|---|---|
-| HO-20260922-04 | ChatGPT | next Athena agent/session | 2026-09-22 UTC | Repository integrity CI repaired and verified green on main; live-tree operating-system audit reconciled | PR #5 merged as f59533ca2cb9ec3fd0edaa1afa55f8acedc97ad8; Actions run #39 success | Bootstrap from AGENTS.md; run CONTINUE; do not treat unverified external systems or runtime controls as implemented |
-
-## Active claim
-| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
-|---|---|---|---|---|---|---|
-| WC-20260922-02 | ChatGPT | GitHub continuation session | agent/continue-ssot-reconciliation-20260922 | canonical SSOT reconciliation readiness; inspect committed SSOT export/reference and establish next executable work | active | publish reconciliation evidence/state, or bounded blocker |
-
-
-## Active claim — SSOT experiment-program reconciliation
-| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
-|---|---|---|---|---|---|---|
-| WC-20260922-03 | ChatGPT | GitHub continuation session | agent/ssot-experiment-program-20260922 | synchronize the current canonical experiment registry/method into repository-native records without inventing executable fields | active | publish reconciliation PR or bounded blocker |
-
-## Reconciliation checkpoint — 2026-09-22
-- Direct Notion inspection confirmed the current canonical registry contains EXP-001 through EXP-005 only.
-- The current canonical evaluation method defines a raw-base-model + frozen-synthetic-scenario baseline and the seven-stage experimental sequence.
-- Historical references to 18-job and 20-run programmes are retained as historical evidence and are not silently promoted.
-- Exact executable fields not present in the current canonical registry/method remain unresolved and must not be invented.
-- Next gate: obtain/reconcile an authoritative executable specification before freezing manifests or running a new cohort.
-
-
-## Active claim — AppDeploy infrastructure preflight
-| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
-|---|---|---|---|---|---|---|
-| WC-20260922-05 | ChatGPT | GitHub continuation session | agent/appdeploy-preflight-20260922 | verify deployed experiment runner, capture exact runtime failure, and isolate infrastructure fixes from scientific definition | active | publish evidence/PR or bounded blocker; no scientific-variable changes |
-
-## AppDeploy preflight checkpoint — 2026-09-22
-- AppDeploy app `athena-experiment-runner-6gnl2p` is deployed/ready.
-- Cron reports repeated 504 `runner_task_timeout` at 30,000 ms.
-- Source inspection identified multi-step tick work and a historical Gemini 3.5 Flash-Lite programme.
-- Issue #10 captures the raw finding.
+If overlap is discovered: stop edits; identify owners/branches; compare intended outcomes; establish dependency/integration order; record the resolution. Never silently overwrite another agent's work.
