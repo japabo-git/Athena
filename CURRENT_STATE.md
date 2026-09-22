@@ -17,6 +17,16 @@ GitHub is now the primary durable operational workspace. The current external ca
 - App/deployment infrastructure remains separate from scientific experiment changes.
 - Runtime/user memory remains an application concern; MEMORY_SYSTEM.md defines the boundary.
 
+## Continuation checkpoint — 2026-09-22
+
+- Repository `japabo-git/Athena` was reloaded from `main` and the published operating contract was followed.
+- Main is clean with no open PRs/issues requiring collision handling.
+- The committed `Athena_Canonical_Source_of_Truth_Notion_Export.zip` is present in the repository. During this continuation, the live canonical Notion page was also directly inspected, so the current authority was verified; GitHub has **not** been cut over as the authoritative decision source.
+- The committed `athena-experiment-system/reference/Agent_Execution_Lifecycle___Architecture_Guide.md` is available as reference material only; it must not override the constitution or canonical SSOT.
+- No experiment definitions were invented. The repository still requires canonical manifest synchronization before baseline execution.
+- Active continuation claim: `WC-20260922-02` on branch `agent/continue-ssot-reconciliation-20260922`.
+- Next executable action: reconcile the canonical experiment programme/manifest into repository-native records. The current Notion registry exposes EXP-001 through EXP-005, while other canonical/historical material references an 18-job cohort and a 20-run screening design; do not silently choose between these until the authoritative current programme is identified.
+
 ## Workstreams
 | Workstream | Status | Next action |
 |---|---|---|

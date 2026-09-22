@@ -49,3 +49,8 @@ If overlap is discovered: stop edits; identify owners/branches; compare intended
 | ID | From | To | Time | What changed | Evidence | Next action |
 |---|---|---|---|---|---|---|
 | HO-20260922-04 | ChatGPT | next Athena agent/session | 2026-09-22 UTC | Repository integrity CI repaired and verified green on main; live-tree operating-system audit reconciled | PR #5 merged as f59533ca2cb9ec3fd0edaa1afa55f8acedc97ad8; Actions run #39 success | Bootstrap from AGENTS.md; run CONTINUE; do not treat unverified external systems or runtime controls as implemented |
+
+## Active claim
+| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
+|---|---|---|---|---|---|---|
+| WC-20260922-02 | ChatGPT | GitHub continuation session | agent/continue-ssot-reconciliation-20260922 | canonical SSOT reconciliation readiness; inspect committed SSOT export/reference and establish next executable work | active | publish reconciliation evidence/state, or bounded blocker |
