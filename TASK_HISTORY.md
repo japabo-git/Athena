@@ -27,6 +27,6 @@ Branch: agent/consolidate-agent-ops-20260922.
 PR: #13.
 Intended outcome: make agent synchronization, authority routing, task/claim ownership, external-worker handoff and CONTINUE execution generic, concise and self-maintaining across all situations rather than adding a one-off Antigravity rule.
 Actions: audited root operating docs and live coordination state; identified stale active claims and governance-loop risk; created AGENT_OPERATIONS.md; simplified AGENTS.md, WORKSPACE.md, OPERATING_MODEL.md and CONTINUE.md; clarified WORK_COORDINATION, TOOLING, EXTERNAL_SYSTEMS and CURRENT_STATE.
-Evidence/results: PR #13; repository-level guidance aligned to current agent-instruction practice emphasizing minimal high-signal durable instructions, one canonical home per rule, volatile state outside always-loaded instructions, and durable evidence/handoffs. citeturn0search0turn0search12
+Evidence/results: PR #13; repository-level guidance aligned to current agent-instruction practice emphasizing minimal high-signal durable instructions, one canonical home per rule, volatile state outside always-loaded instructions, and durable evidence/handoffs.
 Decision: treat GitHub as coordination spine and every external worker as temporary execution state until reconciled.
 Follow-up: merge after checks/review; validate by having the next agent start from GitHub and continue real work without manual context reconstruction.
