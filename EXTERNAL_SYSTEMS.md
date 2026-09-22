@@ -15,7 +15,7 @@ Role: application deployment/runtime.
 Owns: live runtime state while deployed.
 Does not own: Athena decisions or experiment definitions.
 Return path: deployment IDs, logs, config versions and outcomes into evidence.
-Status: verify separately.
+Status: verified deployed/ready, but cron execution is currently timing out at the 30s handler limit; see GitHub issue #10. Runtime source also contains a historical experiment programme that must not be treated as current scientific authority.
 
 ## Google AI Studio / Gemini
 Role: model provider.
