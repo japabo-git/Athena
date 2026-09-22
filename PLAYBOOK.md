@@ -2,20 +2,16 @@
 
 This is the index for repeatable methods that have proved useful.
 
-## Process
+## Canonical operating workflow
+Repository-wide agent operation is defined once in `AGENTS.md` → `AGENT_OPERATIONS.md`.
 
-1. Orient from the repository.
-2. Check authority and current state.
-3. Check coordination claims.
-4. Identify the smallest useful next action.
-5. Preserve evidence.
-6. Update the durable record.
-7. Handoff cleanly.
+Specialized procedures should be loaded only when their task requires them.
+
+## Process
+**Sync → Orient → Establish authority → Check ownership → Define done → Execute → Verify → Record → Publish → Reassess.**
 
 ## When a pattern proves useful
-
 Promote it from chat into a reusable artifact:
-
 - SOP for an operational process;
 - skill for an agent capability;
 - template for repeated documentation;
@@ -25,28 +21,14 @@ Promote it from chat into a reusable artifact:
 - anti-pattern for a failed/rejected approach.
 
 ## Evidence standard
-
-A pattern should not be called "proven" merely because it worked once.
-
-Record:
-
-- context;
-- attempts;
-- observed result;
-- limitations;
-- when it should be used;
-- when it should not be used.
+Do not call a pattern "proven" because it worked once. Record context, attempts, observed result, limitations, suitable/unsuitable conditions and confidence.
 
 ## Current reusable artifacts
-
 | Artifact | Purpose | Status |
 |---|---|---|
-| AGENTS.md | agent contract and authority | active |
-| OPERATING_MODEL.md | shared work style and repeatable loops | active |
-| WORK_COORDINATION.md | collision/handoff control | active |
+| AGENT_OPERATIONS.md | canonical repository-wide agent workflow | active |
+| AGENT_RUNTIME_PROTOCOL.md | compatibility route to canonical workflow | compatibility |
+| WORK_COORDINATION.md | live collision/handoff control | active |
 | EVIDENCE_PROTOCOL.md | provenance/raw evidence | active |
-| DECISION_LOG.md | durable decisions and lessons | active |
-| session-start-protocol.md | new-session bootstrap | active |
+| DECISION_LOG.md | durable decisions | active |
 | repository-integrity.yml | machine-checkable repository hygiene | active |
-
-Add links/paths here whenever a new reusable artifact becomes canonical.
