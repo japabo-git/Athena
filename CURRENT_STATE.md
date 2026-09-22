@@ -2,6 +2,14 @@
 
 Last updated: 2026-09-22 UTC
 
+## Executable-specification gate — 2026-09-22
+
+- Direct canonical-method/SOP inspection confirms the scientific baseline and execution controls, but the current EXP-001..005 programme still lacks a complete frozen cohort manifest.
+- Historical 18-job/20-run designs and Gemini 3.5 Flash-Lite execution references remain historical; they were not promoted into the current programme.
+- A bounded blocker record is published at athena-experiment-system/experiments/EXECUTABLE_SPEC_GATE_20260922.md.
+- Do not run a new model cohort until exact model/provider, scenario fixtures/version, generation parameters, repetitions, evaluator/version, held-out set and experiment-specific completion/acceptance criteria are authoritatively locked.
+- Infrastructure diagnosis may proceed independently without changing scientific variables.
+
 ## Project direction
 Athena is a tenant-agnostic self-improvement system. Its intended role is inquiry-first: understand current and desired states, test assumptions, identify likely future problems, and help the person make better decisions rather than merely agreeing.
 
