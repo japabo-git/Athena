@@ -67,3 +67,15 @@ If overlap is discovered: stop edits; identify owners/branches; compare intended
 - Historical references to 18-job and 20-run programmes are retained as historical evidence and are not silently promoted.
 - Exact executable fields not present in the current canonical registry/method remain unresolved and must not be invented.
 - Next gate: obtain/reconcile an authoritative executable specification before freezing manifests or running a new cohort.
+
+
+## Active claim — AppDeploy infrastructure preflight
+| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
+|---|---|---|---|---|---|---|
+| WC-20260922-05 | ChatGPT | GitHub continuation session | agent/appdeploy-preflight-20260922 | verify deployed experiment runner, capture exact runtime failure, and isolate infrastructure fixes from scientific definition | active | publish evidence/PR or bounded blocker; no scientific-variable changes |
+
+## AppDeploy preflight checkpoint — 2026-09-22
+- AppDeploy app `athena-experiment-runner-6gnl2p` is deployed/ready.
+- Cron reports repeated 504 `runner_task_timeout` at 30,000 ms.
+- Source inspection identified multi-step tick work and a historical Gemini 3.5 Flash-Lite programme.
+- Issue #10 captures the raw finding.
