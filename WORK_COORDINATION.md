@@ -54,3 +54,16 @@ If overlap is discovered: stop edits; identify owners/branches; compare intended
 | ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
 |---|---|---|---|---|---|---|
 | WC-20260922-02 | ChatGPT | GitHub continuation session | agent/continue-ssot-reconciliation-20260922 | canonical SSOT reconciliation readiness; inspect committed SSOT export/reference and establish next executable work | active | publish reconciliation evidence/state, or bounded blocker |
+
+
+## Active claim — SSOT experiment-program reconciliation
+| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
+|---|---|---|---|---|---|---|
+| WC-20260922-03 | ChatGPT | GitHub continuation session | agent/ssot-experiment-program-20260922 | synchronize the current canonical experiment registry/method into repository-native records without inventing executable fields | active | publish reconciliation PR or bounded blocker |
+
+## Reconciliation checkpoint — 2026-09-22
+- Direct Notion inspection confirmed the current canonical registry contains EXP-001 through EXP-005 only.
+- The current canonical evaluation method defines a raw-base-model + frozen-synthetic-scenario baseline and the seven-stage experimental sequence.
+- Historical references to 18-job and 20-run programmes are retained as historical evidence and are not silently promoted.
+- Exact executable fields not present in the current canonical registry/method remain unresolved and must not be invented.
+- Next gate: obtain/reconcile an authoritative executable specification before freezing manifests or running a new cohort.
