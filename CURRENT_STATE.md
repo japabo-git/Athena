@@ -45,3 +45,12 @@ GitHub is now the primary durable operational workspace. The current external ca
 - Avoid duplicate/overlapping work.
 - Prefer shortest useful path and observable evidence.
 - Promote proven methods to SOPs/playbooks/skills; record failed approaches as anti-patterns.
+
+
+## Experiment-program reconciliation — 2026-09-22
+- Current canonical Notion registry was queried directly and contains five records: EXP-001 through EXP-005.
+- The canonical evaluation method was re-read: baseline is raw base model + frozen synthetic scenario; experiment sequence proceeds from repeated baseline through failure mapping, single-capability interventions, replication, combination, and longitudinal/outcome testing.
+- Historical 18-job/20-run references were not promoted into the current programme.
+- A repository-native reconciliation record has been added at `athena-experiment-system/experiments/CANONICAL_PROGRAM_20260922.md`.
+- Executable manifest fields not established by current canonical material remain explicitly unresolved.
+- Next action: reconcile/freeze the authoritative executable specification before implementing or running the new experiment cohort.
