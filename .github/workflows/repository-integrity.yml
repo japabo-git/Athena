@@ -56,9 +56,9 @@ jobs:
           set -euo pipefail
           test -f AGENT_OPERATIONS.md
           grep -q 'AGENT_OPERATIONS.md' AGENTS.md
-          grep -q 'Synchronize/reconcile' CONTINUE.md
-          grep -q 'GitHub is the durable coordination' WORKSPACE.md
-          grep -q 'temporary execution state' EXTERNAL_SYSTEMS.md
+          grep -Eq 'Synchronize/reconcile|synchronize/reconcile' CONTINUE.md
+          grep -Eq 'GitHub is the durable (engineering/)?coordination|GitHub is the coordination spine' WORKSPACE.md
+          grep -q 'temporary local execution state' EXTERNAL_SYSTEMS.md
           grep -q 'canonical workflow' AGENT_RUNTIME_PROTOCOL.md
           grep -q 'AGENT_OPERATIONS.md' PLAYBOOK.md
 
