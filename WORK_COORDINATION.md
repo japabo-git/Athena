@@ -79,3 +79,17 @@ If overlap is discovered: stop edits; identify owners/branches; compare intended
 - Cron reports repeated 504 `runner_task_timeout` at 30,000 ms.
 - Source inspection identified multi-step tick work and a historical Gemini 3.5 Flash-Lite programme.
 - Issue #10 captures the raw finding.
+
+
+## Active claim — HAOS Inspect smoke harness
+| ID | Owner | Agent/session | Branch | Scope | Status | Expected handoff |
+|---|---|---|---|---|---|---|
+| WC-20260923-HAOS-01 | ChatGPT | HAOS Phase 2.5 session | agent/haos-inspect-smoke-20260923 | Inspect-based smoke harness + minimum HAOS/Hive fixture corpus; no scientific runner or experiment-variable changes | active | smoke harness + fixture set published for validation |
+
+## HAOS smoke checkpoint — 2026-09-23
+- Added `athena-experiment-system/haos_smoke/smoke.py`.
+- Added `athena-experiment-system/haos_smoke/fixtures.jsonl` with six minimal fixture classes: handoff/resumption, authority boundary, provenance, lifecycle, portability and failure recovery.
+- Added `athena-experiment-system/haos_smoke/README.md`.
+- Python syntax and fixture schema were checked locally; an Inspect/model execution was not claimed because this session does not have the repository checkout/Inspect runtime available.
+- The fixture set is explicitly marked non-evidence and does not define the scientific E1-E6 variables.
+- Scope intentionally excludes the experiment runner, retrieval infrastructure, databases, orchestration, and architecture implementation.
